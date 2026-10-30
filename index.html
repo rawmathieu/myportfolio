@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-:root{--w:#fff;--o:#eeede9;--k:#0a0a0a;--g:#85857f;--line:rgba(10,10,10,.14);--ease:cubic-bezier(.65,0,.2,1);
+:root{--w:#fff;--o:#eeede9;--k:#0a0a0a;--g:#85857f;--line:rgba(10,10,10,.14);--ease:cubic-bezier(.65,0,.2,1);--top:max(32vh,260px);
   --sans:"Geist","Inter Tight","Helvetica Neue",Arial,system-ui,sans-serif;
   --mono:"Geist Mono",ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;color-scheme:light}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -36,10 +36,10 @@ nav button:hover::after,nav button.on::after{transform:scaleX(1);transform-origi
 
 /* home */
 #home{position:fixed;inset:0;overflow:hidden}
-.hero{position:absolute;left:4vw;right:4vw;top:max(13vh,84px);z-index:2;pointer-events:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,30ch);column-gap:4vw;align-items:end}
+.hero{position:absolute;left:4vw;right:4vw;top:max(11vh,80px);z-index:2;pointer-events:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,30ch);column-gap:4vw;align-items:end}
 .hero .eyebrow{grid-column:1/-1}
 .eyebrow{display:block;margin-bottom:clamp(14px,2.4vh,26px);color:var(--g)}
-.hero h1{font-weight:500;font-size:clamp(40px,min(6.6vw,10vh),116px);line-height:.93;letter-spacing:-.055em}
+.hero h1{font-weight:500;font-size:clamp(40px,min(5.4vw,8.4vh),100px);line-height:.93;letter-spacing:-.055em}
 .hero h1 span{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero h1 i{display:block;font-style:normal;transform:translateY(105%)}
 .ready .hero h1 i{transform:none;transition:transform 1.2s var(--ease)}
@@ -47,17 +47,16 @@ nav button:hover::after,nav button.on::after{transform:scaleX(1);transform-origi
 .hero p{margin:0 0 .6em;font-size:16px;line-height:1.45;color:var(--g);opacity:0;transition:opacity 1s .9s}
 .ready .hero p,.ready .eyebrow{opacity:1}
 .eyebrow{opacity:0;transition:opacity 1s .6s}
-.strip{position:absolute;left:0;bottom:8.5vh;display:flex;align-items:flex-end;gap:clamp(14px,2vw,32px);padding:0 4vw;will-change:transform;touch-action:pan-y}
-.card{flex:none;width:clamp(200px,min(26vw,32vh),420px);text-align:left;display:block}
-.card:nth-child(even){transform:translateY(-4vh)}
-.frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--w)}
+.strip{position:absolute;left:0;bottom:8.5vh;padding-right:4vw;display:flex;align-items:flex-end;gap:clamp(14px,2vw,32px);padding:0 4vw;will-change:transform;touch-action:pan-y}
+.card{flex:none;width:min(78vw,clamp(220px,calc((100vh - var(--top) - 8.5vh - 64px)*.875),600px));text-align:left;display:block}
+.frame{position:relative;aspect-ratio:7/8;overflow:hidden;background:var(--w)}
 .frame .m{position:absolute;inset:-8%;width:116%;height:116%;transition:transform 1.1s var(--ease)}
 .card:hover .m{transform:scale(1.07)}
 .card .cap{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:14px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .card .cap .n{color:var(--g)}
 .card .cap .t{font-size:18px;font-weight:500;letter-spacing:-.03em}
 .card .cap em{font-style:normal;color:var(--g);font-variant-numeric:tabular-nums}
-.hint{position:absolute;right:4vw;top:max(13vh,84px);color:var(--g);text-align:right;line-height:1.6;pointer-events:none}
+.hint{position:absolute;right:4vw;top:max(11vh,80px);color:var(--g);text-align:right;line-height:1.6;pointer-events:none}
 .bar{position:absolute;left:4vw;right:4vw;bottom:3.4vh;height:1px;background:var(--line)}
 .bar i{display:block;height:100%;background:var(--k);transform-origin:left;transform:scaleX(0)}
 
@@ -101,13 +100,12 @@ nav button:hover::after,nav button.on::after{transform:scaleX(1);transform-origi
 @media (max-width:700px){
   header{padding:20px 5vw}nav{gap:20px}
   .hint{display:none}
-  .hero{left:5vw;right:5vw;top:max(13vh,84px);grid-template-columns:1fr;row-gap:0}
+  .hero{left:5vw;right:5vw;top:max(12vh,84px);grid-template-columns:1fr;row-gap:0}
   .hero p{margin:clamp(12px,2vh,20px) 0 0;max-width:32ch}
   .hero h1{font-size:clamp(38px,min(11.4vw,10.5vh),72px)}
   .hero p{font-size:15px}
   .strip{padding:0 5vw;bottom:9vh}
-  .card{width:min(62vw,34vh)}
-  .card:nth-child(even){transform:translateY(-3vh)}
+  :root{--top:max(35vh,300px)}
   .bar{left:5vw;right:5vw}
   .stage{inset:12vh 0 14vh}
   #cat .top,.ctrl{left:5vw;right:5vw}
@@ -153,7 +151,7 @@ nav button:hover::after,nav button.on::after{transform:scaleX(1);transform-origi
 <aside class="panel" id="about" aria-label="À propos">
   <button class="x" data-close>Fermer ✕</button>
   <h3>Mathieu,<br>Marseille.</h3>
-  <p>Je photographie au Sony a6400, entre portrait, Y2K, automobile et créations graphiques. Même obsession partout : s’approcher, et laisser le sujet prendre toute la place.</p>
+  <p>Photographe basé à Marseille, je shoote au Sony a6400 : portrait, Y2K, automobile, et je pousse le tout en créations graphiques. Mon truc, c’est de m’approcher et de laisser le sujet prendre toute la place. Dispo pour shootings, collabs et projets, écris-moi.</p>
   <ul><li>Portraits</li><li>Y2K</li><li>Automobile</li><li>Créations Graphiques</li></ul>
 </aside>
 <aside class="panel" id="contact" aria-label="Contact">
